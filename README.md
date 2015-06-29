@@ -8,8 +8,8 @@ Available registers for reading and writing.
 Name | Register | R/W | Data length 
 -----|----------|-----|-------------
 GET_CAPACITANCE   | 0x00 | (r) | 2
-SET_ADDRESS       | 0x01 | (r) | 1
-GET_ADDRESS       | 0x02 | (w) | 1
+SET_ADDRESS       | 0x01 | (w) | 1
+GET_ADDRESS       | 0x02 | (r) | 1
 MEASURE_LIGHT     | 0x03 | (w) | 0
 GET_LIGHT         | 0x04 | (r) | 0
 GET_TEMPERATURE   | 0x05 | (r) | 2
