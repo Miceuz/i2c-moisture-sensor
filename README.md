@@ -11,7 +11,7 @@ GET_CAPACITANCE   | 0x00 | (r) | 2
 SET_ADDRESS       | 0x01 | (w) | 1
 GET_ADDRESS       | 0x02 | (r) | 1
 MEASURE_LIGHT     | 0x03 | (w) | 0
-GET_LIGHT         | 0x04 | (r) | 0
+GET_LIGHT         | 0x04 | (r) | 2
 GET_TEMPERATURE   | 0x05 | (r) | 2
 RESET             | 0x06 | (w) | 0
 GET_VERSION       | 0x07 | (r) | 1
