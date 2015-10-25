@@ -84,6 +84,6 @@ long thermistorLsbToTemperature(unsigned int lsb) {
 // void main() {
 // 	int i;
 // 	for(i = 129; i < 1024; i++) {
-// 		printf("%d, \n", thermistorLsbToTemperature(i));
+// 		printf("%d - %d, \n", i, thermistorLsbToTemperature(i));
 // 	}
 // }
