@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:i2c-moist-sensor-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -37,7 +38,7 @@ encoding utf-8
 Sheet 1 1
 Title "Digital soil moisture sensor"
 Date "Tue 17 Feb 2015"
-Rev ""
+Rev "2.7"
 Comp "Catnip electronics"
 Comment1 "by Albertas Mickėnas mic@wemakethings.net"
 Comment2 ""
@@ -399,7 +400,7 @@ THERMISTOR
 Text Label 4550 2000 2    60   ~ 0
 THERMISTOR
 $Comp
-L LED D3
+L LED-RESCUE-i2c-moist-sensor D3
 U 1 1 54E06E01
 P 5100 1550
 F 0 "D3" H 5100 1650 50  0000 C CNN

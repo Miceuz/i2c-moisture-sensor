@@ -1,13 +1,13 @@
 (export (version D)
   (design
     (source /home/miceuz/Xaltura/i2c-moist-sensor/i2c-moist-sensor.sch)
-    (date "Tue 02 Jun 2015 11:29:44 PM EEST")
-    (tool "Eeschema (2015-05-18 BZR 5668)-product")
+    (date "Sun 25 Oct 2015 06:51:05 PM EET")
+    (tool "Eeschema 0.201510221816+6274~30~ubuntu14.04.1-product")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title "Digital soil moisture sensor")
         (company "Catnip electronics")
-        (rev)
+        (rev 2.7)
         (date "Tue 17 Feb 2015")
         (source i2c-moist-sensor.sch)
         (comment (number 1) (value "by Albertas Mickėnas mic@wemakethings.net"))
@@ -120,7 +120,7 @@
     (comp (ref D3)
       (value LED)
       (footprint LEDs:LED-0603)
-      (libsource (lib device) (part LED))
+      (libsource (lib i2c-moist-sensor-rescue) (part LED-RESCUE-i2c-moist-sensor))
       (sheetpath (names /) (tstamps /))
       (tstamp 54E06E01))
     (comp (ref R9)
@@ -137,51 +137,11 @@
       (tstamp 54E0D5F3))
     (comp (ref IC1)
       (value ATTINY441-SSU)
-      (footprint SO14)
+      (footprint Housings_SOIC:SOIC-14_3.9x8.7mm_Pitch1.27mm)
       (libsource (lib atmel) (part ATTINY441-SSU))
       (sheetpath (names /) (tstamps /))
       (tstamp 556E13D2)))
   (libparts
-    (libpart (lib device) (part C)
-      (description "Unpolarized capacitor")
-      (footprints
-        (fp C?)
-        (fp C_????_*)
-        (fp C_????)
-        (fp SMD*_c)
-        (fp Capacitor*))
-      (fields
-        (field (name Reference) C)
-        (field (name Value) C))
-      (pins
-        (pin (num 1) (name ~) (type passive))
-        (pin (num 2) (name ~) (type passive))))
-    (libpart (lib device) (part LED)
-      (footprints
-        (fp LED-3MM)
-        (fp LED-5MM)
-        (fp LED-10MM)
-        (fp LED-0603)
-        (fp LED-0805)
-        (fp LED-1206)
-        (fp LEDV))
-      (fields
-        (field (name Reference) D)
-        (field (name Value) LED))
-      (pins
-        (pin (num 1) (name A) (type passive))
-        (pin (num 2) (name K) (type passive))))
-    (libpart (lib device) (part R)
-      (description Resistor)
-      (footprints
-        (fp R_*)
-        (fp Resistor_*))
-      (fields
-        (field (name Reference) R)
-        (field (name Value) R))
-      (pins
-        (pin (num 1) (name ~) (type passive))
-        (pin (num 2) (name ~) (type passive))))
     (libpart (lib device) (part THERMISTOR)
       (description Resistance)
       (footprints
@@ -194,26 +154,10 @@
       (pins
         (pin (num 1) (name ~) (type passive))
         (pin (num 2) (name ~) (type passive))))
-    (libpart (lib conn) (part CONN_02X03)
-      (footprints
-        (fp Pin_Header_Straight_2X03)
-        (fp Pin_Header_Angled_2X03)
-        (fp Socket_Strip_Straight_2X03)
-        (fp Socket_Strip_Angled_2X03))
-      (fields
-        (field (name Reference) P)
-        (field (name Value) CONN_02X03))
-      (pins
-        (pin (num 1) (name P1) (type passive))
-        (pin (num 2) (name P2) (type passive))
-        (pin (num 3) (name P3) (type passive))
-        (pin (num 4) (name P4) (type passive))
-        (pin (num 5) (name P5) (type passive))
-        (pin (num 6) (name P6) (type passive))))
     (libpart (lib atmel) (part ATTINY441-SSU)
       (aliases
         (alias ATTINY841-SSU))
-      (description "ATTINY441-SSU, SO14, 4k Flash, 256B SRAM, 256B EEPROM, ADC, ACI, dW")
+      (description "SO14, 4k Flash, 256B SRAM, 256B EEPROM, ADC, ACI, dW")
       (docs http://www.atmel.com/Images/Atmel-8495-8-bit-AVR-Microcontrollers-ATtiny441-ATtiny841_Datasheet.pdf)
       (footprints
         (fp SO*))
@@ -252,16 +196,74 @@
         (field (name Value) DIODESCH))
       (pins
         (pin (num 1) (name A) (type passive))
-        (pin (num 2) (name K) (type passive)))))
+        (pin (num 2) (name K) (type passive))))
+    (libpart (lib device) (part C)
+      (description "Unpolarized capacitor")
+      (footprints
+        (fp C?)
+        (fp C_????_*)
+        (fp C_????)
+        (fp SMD*_c)
+        (fp Capacitor*))
+      (fields
+        (field (name Reference) C)
+        (field (name Value) C))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive))))
+    (libpart (lib i2c-moist-sensor-rescue) (part LED-RESCUE-i2c-moist-sensor)
+      (footprints
+        (fp LED-3MM)
+        (fp LED-5MM)
+        (fp LED-10MM)
+        (fp LED-0603)
+        (fp LED-0805)
+        (fp LED-1206)
+        (fp LEDV))
+      (fields
+        (field (name Reference) D)
+        (field (name Value) LED-RESCUE-i2c-moist-sensor))
+      (pins
+        (pin (num 1) (name A) (type passive))
+        (pin (num 2) (name K) (type passive))))
+    (libpart (lib conn) (part CONN_02X03)
+      (footprints
+        (fp Pin_Header_Straight_2X03)
+        (fp Pin_Header_Angled_2X03)
+        (fp Socket_Strip_Straight_2X03)
+        (fp Socket_Strip_Angled_2X03))
+      (fields
+        (field (name Reference) P)
+        (field (name Value) CONN_02X03))
+      (pins
+        (pin (num 1) (name P1) (type passive))
+        (pin (num 2) (name P2) (type passive))
+        (pin (num 3) (name P3) (type passive))
+        (pin (num 4) (name P4) (type passive))
+        (pin (num 5) (name P5) (type passive))
+        (pin (num 6) (name P6) (type passive))))
+    (libpart (lib device) (part R)
+      (description Resistor)
+      (footprints
+        (fp R_*)
+        (fp Resistor_*))
+      (fields
+        (field (name Reference) R)
+        (field (name Value) R))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive)))))
   (libraries
-    (library (logical device)
-      (uri /usr/local/share/kicad/library/device.lib))
     (library (logical conn)
-      (uri /usr/local/share/kicad/library/conn.lib))
-    (library (logical atmel)
-      (uri /usr/local/share/kicad/library/atmel.lib))
+      (uri /usr/share/kicad/library/conn.lib))
     (library (logical i2c-moist-sensor-cache)
-      (uri /home/miceuz/Xaltura/i2c-moist-sensor/i2c-moist-sensor-cache.lib)))
+      (uri /home/miceuz/Xaltura/i2c-moist-sensor/i2c-moist-sensor-cache.lib))
+    (library (logical device)
+      (uri /usr/share/kicad/library/device.lib))
+    (library (logical atmel)
+      (uri /usr/share/kicad/library/atmel.lib))
+    (library (logical i2c-moist-sensor-rescue)
+      (uri /home/miceuz/Xaltura/i2c-moist-sensor/i2c-moist-sensor-rescue.lib)))
   (nets
     (net (code 1) (name /SENSOR_TRACK)
       (node (ref D1) (pin 2))
