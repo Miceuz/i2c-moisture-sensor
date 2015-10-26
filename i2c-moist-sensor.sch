@@ -37,8 +37,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Digital soil moisture sensor"
-Date "Tue 17 Feb 2015"
-Rev "2.7"
+Date "2015-10-26"
+Rev "2.7.3"
 Comp "Catnip electronics"
 Comment1 "by Albertas Mickėnas mic@wemakethings.net"
 Comment2 ""
@@ -64,7 +64,7 @@ L C C1
 U 1 1 54D21881
 P 5400 2950
 F 0 "C1" H 5450 3050 50  0000 L CNN
-F 1 "18p" H 5450 2850 50  0000 L CNN
+F 1 "33p" H 5450 2850 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0603" H 5438 2800 30  0001 C CNN
 F 3 "" H 5400 2950 60  0000 C CNN
 F 4 "MULTICOMP" H 5400 2950 60  0001 C CNN "Manufacturer"
@@ -78,7 +78,7 @@ L C C2
 U 1 1 54D218DE
 P 6000 2950
 F 0 "C2" H 6050 3050 50  0000 L CNN
-F 1 "18p" H 6050 2850 50  0000 L CNN
+F 1 "33pp" H 6050 2850 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0603" H 6038 2800 30  0001 C CNN
 F 3 "" H 6000 2950 60  0000 C CNN
 F 4 "MULTICOMP" H 5400 2950 60  0001 C CNN "Manufacturer"
