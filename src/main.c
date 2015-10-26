@@ -173,6 +173,8 @@ static inline loopSensorMode() {
                 twiTransmitByte(currCapacitance >> 8);
                 twiTransmitByte(currCapacitance &0x00FF);
                 currCapacitance = getCapacitance();
+                set_sleep_mode(SLEEP_MODE_PWR_SAVE);
+                sleep_mode();
             } else if(TWI_SET_ADDRESS == usiRx) {
                 uint8_t newAddress = twiReceiveByte();
                 if(twiIsValidAddress(newAddress)) {
@@ -197,16 +199,22 @@ static inline loopSensorMode() {
 
                 GIMSK |= _BV(PCIE0); 
                 TCCR1B = _BV(CS10) | _BV(CS11);                 //start timer1 with prescaler clk/64
+                set_sleep_mode(SLEEP_MODE_PWR_SAVE);
+                sleep_mode();
 
             } else if(TWI_GET_TEMPERATURE == usiRx) {
                 twiTransmitByte(temperature >> 8);
                 twiTransmitByte(temperature & 0x00FF);
                 temperature = getTemperature();
+                set_sleep_mode(SLEEP_MODE_PWR_SAVE);
+                sleep_mode();
             } else if(TWI_RESET == usiRx) {
                 reset();
 
             } else if(TWI_GET_VERSION == usiRx) {
                 twiTransmitByte(FIRMWARE_VERSION);
+                set_sleep_mode(SLEEP_MODE_PWR_SAVE);
+                sleep_mode();
             }
         }
     }
