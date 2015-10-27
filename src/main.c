@@ -28,6 +28,8 @@
 #define TWI_GET_TEMPERATURE     0x05
 #define TWI_RESET               0x06
 #define TWI_GET_VERSION         0x07
+#define TWI_SLEEP               0x08
+#define TWI_GET_BUSY            0x09
 
 #define I2C_ADDRESS_EEPROM_LOCATION (uint8_t*)0x01
 #define I2C_ADDRESS_DEFAULT         0x20
@@ -74,18 +76,27 @@ uint16_t adcReadChannel(uint8_t channel) {
     return ret;
 }
 
+uint8_t tempMeasurementInProgress = 0;
+
 int getTemperature() {
     uint16_t thermistor = adcReadChannel(CHANNEL_THERMISTOR);
     long temp = thermistorLsbToTemperature(thermistor);
     return (int)temp;
 }
 
+#define isTemperatureMeasurementInProgress() tempMeasurementInProgress
+
+uint8_t capMeasurementInProgress = 0;
+
 uint16_t getCapacitance() {
+    capMeasurementInProgress = 1;
     uint16_t caph = adcReadChannel(CHANNEL_CAPACITANCE_HIGH);
     uint16_t capl = adcReadChannel(CHANNEL_CAPACITANCE_LOW);
+    capMeasurementInProgress = 0;
     return 1024 - (caph - capl);
 }
 
+#define isCapacitanceMeasurementInProgress() capMeasurementInProgress 
 //--------------------- light measurement --------------------
 
 volatile uint16_t lightCounter = 0;
@@ -141,10 +152,13 @@ static inline uint16_t getLight() {
     GIMSK |= _BV(PCIE0); 
 
     lightCycleOver = 0;
+
+    set_sleep_mode(SLEEP_MODE_IDLE);
+    sleep_mode();
 }
 
 
-static inline uint8_t lightMeasurementInProgress() {
+static inline uint8_t isLightMeasurementInProgress() {
     return !lightCycleOver;
 }
 
@@ -173,8 +187,6 @@ static inline loopSensorMode() {
                 twiTransmitByte(currCapacitance >> 8);
                 twiTransmitByte(currCapacitance &0x00FF);
                 currCapacitance = getCapacitance();
-                set_sleep_mode(SLEEP_MODE_PWR_SAVE);
-                sleep_mode();
             } else if(TWI_SET_ADDRESS == usiRx) {
                 uint8_t newAddress = twiReceiveByte();
                 if(twiIsValidAddress(newAddress)) {
@@ -186,7 +198,7 @@ static inline loopSensorMode() {
                 twiTransmitByte(newAddress);
 
             } else if(TWI_MEASURE_LIGHT == usiRx) {
-                if(!lightMeasurementInProgress()) {
+                if(!isLightMeasurementInProgress()) {
                     getLight();
                 }
 
@@ -199,22 +211,22 @@ static inline loopSensorMode() {
 
                 GIMSK |= _BV(PCIE0); 
                 TCCR1B = _BV(CS10) | _BV(CS11);                 //start timer1 with prescaler clk/64
-                set_sleep_mode(SLEEP_MODE_PWR_SAVE);
-                sleep_mode();
-
             } else if(TWI_GET_TEMPERATURE == usiRx) {
                 twiTransmitByte(temperature >> 8);
                 twiTransmitByte(temperature & 0x00FF);
                 temperature = getTemperature();
-                set_sleep_mode(SLEEP_MODE_PWR_SAVE);
-                sleep_mode();
             } else if(TWI_RESET == usiRx) {
                 reset();
 
             } else if(TWI_GET_VERSION == usiRx) {
                 twiTransmitByte(FIRMWARE_VERSION);
-                set_sleep_mode(SLEEP_MODE_PWR_SAVE);
+            } else if(TWI_SLEEP == usiRx) {
+                set_sleep_mode(SLEEP_MODE_PWR_DOWN);
                 sleep_mode();
+            } else if(TWI_GET_BUSY == usiRx) {
+                twiTransmitByte(isCapacitanceMeasurementInProgress() || 
+                                isTemperatureMeasurementInProgress() || 
+                                isLightMeasurementInProgress());
             }
         }
     }
