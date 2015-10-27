@@ -8,7 +8,7 @@
 #include "thermistor.h"
 #include "twi.h"
 
-#define FIRMWARE_VERSION 0x22 //2.2
+#define FIRMWARE_VERSION 0x23 //2.3
 
 #define LED_K PA1
 #define LED_A PA0
@@ -79,8 +79,10 @@ uint16_t adcReadChannel(uint8_t channel) {
 uint8_t tempMeasurementInProgress = 0;
 
 int getTemperature() {
+    tempMeasurementInProgress = 1;
     uint16_t thermistor = adcReadChannel(CHANNEL_THERMISTOR);
     long temp = thermistorLsbToTemperature(thermistor);
+    tempMeasurementInProgress = 0;
     return (int)temp;
 }
 
