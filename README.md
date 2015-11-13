@@ -16,6 +16,39 @@ GET_TEMPERATURE   | 0x05 | (r) | 2
 RESET             | 0x06 | (w) | 0
 GET_VERSION       | 0x07 | (r) | 1
 
+###Raspberry Pi example
+This is a RasPi example provided by user *krikk*
+```python
+#!/usr/bin/python
+
+#https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code/tree/master/Adafruit_I2C
+from Adafruit_I2C import Adafruit_I2C
+from time import sleep, strftime
+from datetime import datetime
+deviceAddr = 0x20
+
+i2c = Adafruit_I2C( deviceAddr, -1, False )
+
+#to change adress
+#i2c.write8( 1, 0x22 )
+
+#reset sensor, we need this otherwise i get inconsistent light reading in the dark...
+i2c.write8( deviceAddr, 0x06 )
+sleep(5)
+
+i2c.write8(deviceAddr, 3)
+sleep(3)
+light = i2c.readU16(4, False)
+temp = i2c.readS16(5, False)/float(10)
+moisture = i2c.readU16(0, False)
+print str(temp) + ":" + str(moisture) + ":" + str(light)
+```
+
+###Arduino library
+Ingo Fischer has written an Arduino library for the sensor, it has a couple of ready made examples: https://github.com/Apollon77/I2CSoilMoistureSensor 
+
+Below are old examples for bare-bones Arduino illustrating a basic I2C use.
+
 ###Arduino example
 ```arduino
 #include <Wire.h>
