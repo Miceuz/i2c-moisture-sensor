@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name chirp_logo)(type KiCad)(uri /home/miceuz/Xaltura/chirp/chirp_logo.pretty)(options "")(descr ""))
+)
