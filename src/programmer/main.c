@@ -132,10 +132,12 @@ static inline unsigned char isPageBoundary(unsigned int i) {
     return i > 0 && 0 == (i + 1) % (PAGE_SIZE);
 }
 
-static inline void setFuses(unsigned char low, unsigned char high) {
+static inline void setFuses(unsigned char low, unsigned char high, unsigned char extended) {
     ispCommand(0xAC, 0xA0, 0x00, low);
     clockWait(30);
     ispCommand(0xAC, 0xA8, 0x00, high);
+    clockWait(30);
+    ispCommand(0xAC, 0xA4, 0x00, extended);
     clockWait(30);
 }
 
@@ -231,7 +233,7 @@ void main(void) {
                     ledOff();
                 }
                 
-                setFuses(0xAE, 0xDF);
+                setFuses(0xAE, 0xDF, 0xF5);
                 chipErase();
                 flashFirmware();
                 ledOff();
