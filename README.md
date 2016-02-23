@@ -82,7 +82,7 @@ if __name__ == "__main__":
 	while True:
 		print "%d\t%d\t%d" % (chirp.moist(), chirp.temp(), chirp.light())
 		time.sleep(1)
-	```
+```
 
 This is another RasPi example provided by user *krikk*
 ```python
@@ -108,6 +108,7 @@ sleep(3)
 light = i2c.readU16(4, False)
 temp = i2c.readS16(5, False)/float(10)
 moisture = i2c.readU16(0, False)
+print "Temperature\tMoisture\tBrightness"
 print str(temp) + ":" + str(moisture) + ":" + str(light)
 ```
 
