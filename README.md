@@ -5,8 +5,8 @@ I2C based soil moisture sensor. A continuation of the [Chirp - plant watering al
 ##I2C protocol
 Available registers for reading and writing.
 
-Name | Register | R/W | Data length 
------|----------|-----|-------------
+  Name | Register | R/W | Data length 
+-------|----------|-----|-------------
 GET_CAPACITANCE   | 0x00 | (r) | 2
 SET_ADDRESS       | 0x01 | (w) | 1
 GET_ADDRESS       | 0x02 | (r) | 1
@@ -15,6 +15,10 @@ GET_LIGHT         | 0x04 | (r) | 2
 GET_TEMPERATURE   | 0x05 | (r) | 2
 RESET             | 0x06 | (w) | 0
 GET_VERSION       | 0x07 | (r) | 1
+SLEEP             | 0x08 | (w) | 0
+GET_BUSY          | 0x09 | (r) | 1
+
+GET_BUSY returns 1 if any measurement is in progress, 0 otherwise.
 
 ###Raspberry Pi example
 
