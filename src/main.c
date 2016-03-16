@@ -95,7 +95,7 @@ uint16_t getCapacitance() {
     uint16_t caph = adcReadChannel(CHANNEL_CAPACITANCE_HIGH);
     uint16_t capl = adcReadChannel(CHANNEL_CAPACITANCE_LOW);
     capMeasurementInProgress = 0;
-    return 1024 - (caph - capl);
+    return 1023 - (caph - capl);
 }
 
 #define isCapacitanceMeasurementInProgress() capMeasurementInProgress 
@@ -255,21 +255,13 @@ int main (void) {
     sei();
 
     ledOn();
+    _delay_ms(100);
     temperature = getTemperature();
     currCapacitance = getCapacitance();
-    _delay_ms(100);
+    //we do it two times because the first reading after reset might be off...
+    temperature = getTemperature();
+    currCapacitance = getCapacitance();
     ledOff();
-
-    // getLight();
-
-    // while(!lightCycleOver) {
-
-    // }
-//    _delay_ms(100);
-    // ledSetup();
-    // ledOn();
-    // _delay_ms(100);
-    // ledOff();
 
     twiSetup(address);    
     loopSensorMode();
