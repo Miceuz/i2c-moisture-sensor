@@ -1,6 +1,6 @@
 Getting sensor to work with Particle Photon
 ===========================================
-by Thanks Miriam Cox
+by Miriam Cox
 
 As someone completely new to electrical work and to Particle microcontrollers, I hit a few slight hurdles in trying to convert this. For anyone else interested in how I got the sensor working with a Particle Photon, it's pretty simple:
 
