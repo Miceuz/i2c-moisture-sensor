@@ -103,7 +103,6 @@ uint16_t getCapacitance() {
 
 volatile uint16_t lightCounter = 0;
 volatile uint8_t lightCycleOver = 1;
-volatile uint16_t light = 0;
 
 #define PCINT1 1
 
@@ -120,14 +119,12 @@ ISR(PCINT0_vect) {
     GIMSK &= ~_BV(PCIE0);//disable pin change interrupts
     TCCR1B = 0;          //stop timer
     lightCounter = TCNT1;
-    light = lightCounter;
     
     stopLightMeaseurement();
 }
 
 ISR(TIMER1_OVF_vect) {
     lightCounter = 65535;
-    light = lightCounter;
     stopLightMeaseurement();
 }
 
