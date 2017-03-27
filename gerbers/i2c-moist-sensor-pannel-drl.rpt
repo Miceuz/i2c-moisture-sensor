@@ -1,5 +1,5 @@
 Drill report for /home/miceuz/Xaltura/i2c-moist-sensor/i2c-moist-sensor-pannel.kicad_pcb
-Created on Mon 26 Oct 2015 05:58:41 PM EET
+Created on Tue 10 Jan 2017 11:28:44 AM EET
 
 Copper Layer Stackup:
     =============================================================
@@ -18,7 +18,7 @@ Drill file 'i2c-moist-sensor-pannel.drl' contains
     Total plated holes count 814
 
 
-Drill file 'i2c-moist-sensor-pannel-NPTH.drl' contains
+Not plated through holes are merged with plated holes
     unplated through holes:
     =============================================================
 
