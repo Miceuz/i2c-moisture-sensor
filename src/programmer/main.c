@@ -193,7 +193,7 @@ static inline char testCapacitanceWithinLimits() {
     _delay_ms(1);
     USI_I2C_Master_Start_Transmission(incomming, 3);
     unsigned int capacitance = ((((unsigned int) incomming[1]) << 8) | incomming[2]);
-    return capacitance > 180 && capacitance < 270;
+    return capacitance > 180 && capacitance < 300;
 } 
 
 static inline char testTempWithinLimits() {
@@ -214,8 +214,9 @@ static inline void blinkError() {
 }
 
 static inline unsigned char testsPass() {
-    return testFirmwareVersionPasses()
-           && testCapacitanceWithinLimits();
+    return testFirmwareVersionPasses() &&
+           testTempWithinLimits() &&
+           testCapacitanceWithinLimits();
 }
 
 void main(void) {
@@ -239,7 +240,7 @@ void main(void) {
                 ledOff();
 
                 ISP_OUT |= (1 << ISP_RST); //release reset
-                _delay_ms(150);
+                _delay_ms(300);
                 
                 ISP_DDR = 0;
                 ISP_OUT = 0;
@@ -247,7 +248,7 @@ void main(void) {
                 if(!testsPass()) {
                     blinkError();
                 } else {
-                    blink(20);
+                    blink(30);
                 }
                 USICR = 0;
         }
