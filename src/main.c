@@ -4,7 +4,7 @@
 #include <avr/interrupt.h>
 #include <avr/eeprom.h>
 //#include <avr/wdt.h>
-#include "sleep.h"
+#include <avr/sleep.h>
 #include "thermistor.h"
 #include "twi.h"
 
@@ -53,7 +53,7 @@ inline static ledToggle() {
 }
 
 static inline void adcSetup() {
-    ADCSRA = _BV(ADEN) | _BV(ADPS2) | _BV(ADPS0);
+    ADCSRA = _BV(ADEN) | _BV(ADPS2) | _BV(ADPS1) | _BV(ADPS0);
     ADCSRA |= _BV(ADIE);
     ADMUXB = 0;
 }

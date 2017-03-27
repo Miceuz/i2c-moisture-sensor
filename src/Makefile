@@ -20,7 +20,7 @@ LDFLAGS += -Wl,--gc-sections,--relax
 
 OBJECTS = main.o thermistor.o twi.o
 
-COMPILE = avr-gcc-4.9.2 -DF_CPU=$(F_CPU) $(CFLAGS) $(LDFLAGS) -mmcu=$(DEVICE)  
+COMPILE = avr-gcc -DF_CPU=$(F_CPU) $(CFLAGS) $(LDFLAGS) -mmcu=$(DEVICE)  
 
 # symbolic targets:
 help:
