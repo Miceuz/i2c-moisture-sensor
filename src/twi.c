@@ -84,5 +84,5 @@ void twiTransmitByte(unsigned char data) {
 }
 
 char twiIsValidAddress(unsigned char address) {
-    return 0 != address && address <= 127;
+    return address > 0x07 && address <= 0x77;
 }
