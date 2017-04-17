@@ -2,7 +2,7 @@
 
 I2C based soil moisture sensor. A continuation of the [Chirp - plant watering alarm](https://github.com/Miceuz/PlantWateringAlarm) project. There is also an [RS485](https://github.com/Miceuz/rs485-moist-sensor) and an [analog](https://github.com/Miceuz/soil-moisture-sensor-analog) version available.
 
-##I2C protocol
+## I2C protocol
 Available registers for reading and writing.
 
   Name | Register | R/W | Data length 
@@ -20,7 +20,7 @@ GET_BUSY          | 0x09 | (r) | 1
 
 GET_BUSY returns 1 if any measurement is in progress, 0 otherwise.
 
-###Raspberry Pi example
+### Raspberry Pi example
 
 This is interface class provided by Daniel Tamm and Jasper Wallace
 ```python
@@ -116,12 +116,12 @@ print "Temperature\tMoisture\tBrightness"
 print str(temp) + ":" + str(moisture) + ":" + str(light)
 ```
 
-###Arduino library
+### Arduino library
 Ingo Fischer has written an Arduino library for the sensor, it has a couple of ready made examples: https://github.com/Apollon77/I2CSoilMoistureSensor 
 
 Below are old examples for bare-bones Arduino illustrating a basic I2C use.
 
-###Arduino example
+### Arduino example
 ```arduino
 #include <Wire.h>
 
@@ -158,7 +158,7 @@ void loop() {
 }
 ```
 
-##Address change example
+## Address change example
 By default the sensor comes with 0x20 set as an address, this is an example on how to change address for indivitual sensor:
 ```arduino
 #include <Wire.h>
@@ -228,6 +228,6 @@ void loop()
   delay(5000);           // wait 5 seconds for next scan
 }
 ```
-###Particle Photon
+### Particle Photon
 
 There is a great [tutorial](ParticlePhoton-tutorial.md) by Miriam Cox for Particle Photon boards.
