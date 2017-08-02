@@ -31,7 +31,7 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:i2c-moist-sensor-cache
-EELAYER 25 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -188,17 +188,6 @@ F 6 "Farnell/2446656" V 8350 3050 60  0001 C CNN "Distributor"
 	0    1    1    0   
 $EndComp
 $Comp
-L VCC #PWR05
-U 1 1 54D2215E
-P 9300 2050
-F 0 "#PWR05" H 9300 1900 60  0001 C CNN
-F 1 "VCC" H 9300 2200 60  0000 C CNN
-F 2 "" H 9300 2050 60  0000 C CNN
-F 3 "" H 9300 2050 60  0000 C CNN
-	1    9300 2050
-	1    0    0    -1  
-$EndComp
-$Comp
 L R R5
 U 1 1 54D22174
 P 9300 2200
@@ -305,17 +294,6 @@ F 5 "MULTICOMP" H 9300 3650 60  0001 C CNN "Manufacturer"
 F 6 "Farnell/2446602" H 9300 3650 60  0001 C CNN "Distributor"
 	1    9300 3650
 	-1   0    0    1   
-$EndComp
-$Comp
-L VCC #PWR08
-U 1 1 54D226D9
-P 9300 3500
-F 0 "#PWR08" H 9300 3350 60  0001 C CNN
-F 1 "VCC" H 9300 3650 60  0000 C CNN
-F 2 "" H 9300 3500 60  0000 C CNN
-F 3 "" H 9300 3500 60  0000 C CNN
-	1    9300 3500
-	1    0    0    -1  
 $EndComp
 Text Label 9900 3800 0    60   ~ 0
 MISO/SENSE_HIGH
@@ -433,17 +411,6 @@ F 1 "GND" H 7250 4650 60  0000 C CNN
 F 2 "" H 7250 4800 60  0000 C CNN
 F 3 "" H 7250 4800 60  0000 C CNN
 	1    7250 4800
-	1    0    0    -1  
-$EndComp
-$Comp
-L VCC #PWR013
-U 1 1 54E060B0
-P 7250 4000
-F 0 "#PWR013" H 7250 3850 60  0001 C CNN
-F 1 "VCC" H 7250 4150 60  0000 C CNN
-F 2 "" H 7250 4000 60  0000 C CNN
-F 3 "" H 7250 4000 60  0000 C CNN
-	1    7250 4000
 	1    0    0    -1  
 $EndComp
 Text Label 6250 4300 0    60   ~ 0
@@ -564,7 +531,7 @@ Text Label 3850 5750 0    60   ~ 0
 RESET
 Connection ~ 9300 2350
 Wire Wire Line
-	3650 1900 4550 1900
+	3650 1900 9750 1900
 Wire Wire Line
 	5600 1800 3650 1800
 Wire Wire Line
@@ -587,4 +554,16 @@ F 6 "Farnell/2396717" H 2600 2300 60  0001 C CNN "Distributor"
 	1    2600 2300
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	9300 1900 9300 2050
+Wire Wire Line
+	9300 3500 9750 3500
+Wire Wire Line
+	9750 3500 9750 1900
+Connection ~ 9300 1900
+Wire Wire Line
+	7250 4000 7250 1900
+Connection ~ 7250 1900
+Text Label 7250 1900 0    60   ~ 0
+POWER
 $EndSCHEMATC
