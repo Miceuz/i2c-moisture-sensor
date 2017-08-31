@@ -21,15 +21,18 @@ GET_BUSY          | 0x09 | (r) | 1
 GET_BUSY returns 1 if any measurement is in progress, 0 otherwise.
 
 ### Python library for Raspberry Pi
-[Göran Lundberg](https://github.com/ageir) has released a Python library for Raspberry pi: [https://github.com/ageir/chirp-rpi](https://github.com/ageir/chirp-rpi) It has a very comprehensive documentation and covers a lot of functinality.
+[Göran Lundberg](https://github.com/ageir) has released a Python library for Raspberry Pi: [https://github.com/ageir/chirp-rpi](https://github.com/ageir/chirp-rpi)
+It has a very comprehensive documentation and covers a lot of functionality.
 
 Some features:
-* A trigger function to trigger all enabled sensors.
-* Get soil moisture in percentage, requires calibration.
+* Uses a trigger function to trigger all enabled sensors. User selectable.
+* Get soil moisture in percent (requires calibration) or capacitance value.
 * Several temperature scales to choose from. Celcius, Farenheit and Kelvin.
-* Temperature offset to calibrate temperature sensor.
-* Change I2C address
-* Deep sleep mode to save power. 
+* Offset to calibrate the temperature sensor.
+* Measurement timestamps for all on board sensors.
+* Built in support for changing the I2C address of the sensor.
+* Deep sleep mode to conserve power.
+* Calibration tool for soil moisture.
 
 ### Raspberry Pi examples
 
