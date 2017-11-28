@@ -8,12 +8,15 @@
 #include "thermistor.h"
 #include "twi.h"
 
-#define FIRMWARE_VERSION 0x23 //2.3
+#define FIRMWARE_VERSION 0x24 //2.4
 
 #define LED_K PA1
 #define LED_A PA0
 #define LED_DDR DDRA
 #define LED_PORT PORTA
+#define POWER_DDR DDRA
+#define POWER_PORT PORTA
+#define POWER_PIN PA2
 
 #define CHANNEL_THERMISTOR 3
 #define CHANNEL_CAPACITANCE_HIGH 5
@@ -46,6 +49,15 @@ inline static void ledOn() {
 
 inline static void ledOff() {
     LED_PORT &= ~_BV(LED_A);
+}
+
+inline static void powerOn() {
+	POWER_DDR |= _BV(POWER_PIN);
+	POWER_PORT |= _BV(POWER_PIN);
+}
+
+inline static void powerOff() {
+	POWER_PORT &= ~_BV(POWER_PIN);
 }
 
 inline static ledToggle() {
@@ -220,8 +232,10 @@ static inline loopSensorMode() {
             } else if(TWI_GET_VERSION == usiRx) {
                 twiTransmitByte(FIRMWARE_VERSION);
             } else if(TWI_SLEEP == usiRx) {
+            	powerOff();
                 set_sleep_mode(SLEEP_MODE_PWR_DOWN);
                 sleep_mode();
+                powerOn();
             } else if(TWI_GET_BUSY == usiRx) {
                 twiTransmitByte(isCapacitanceMeasurementInProgress() || 
                                 isTemperatureMeasurementInProgress() || 
@@ -249,6 +263,7 @@ int main (void) {
     setupPowerSaving();
     ledSetup();
     adcSetup();
+    powerOn();
     sei();
 
     ledOn();
