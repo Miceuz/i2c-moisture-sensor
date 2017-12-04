@@ -21,6 +21,10 @@ GET_BUSY          | 0x09 | (r) | 1
 GET_BUSY returns 1 if any measurement is in progress, 0 otherwise.
 
 ### Python library for Raspberry Pi
+
+*NOTE: if you experience problems on Raspberry Pi 3, slow down I2C bus speed by adding this line to /boot/config.txt:*
+**dtparam=i2c1_baudrate=30000**
+
 [Göran Lundberg](https://github.com/ageir) has released a Python library for Raspberry Pi: [https://github.com/ageir/chirp-rpi](https://github.com/ageir/chirp-rpi)
 It has a very comprehensive documentation and covers a lot of functionality.
 
