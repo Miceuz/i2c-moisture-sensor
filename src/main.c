@@ -60,17 +60,17 @@ inline static void powerOff() {
 	POWER_PORT &= ~_BV(POWER_PIN);
 }
 
-inline static ledToggle() {
+inline static void ledToggle() {
     LED_PORT ^= _BV(LED_A);
 }
 
-static inline void adcSetup() {
+inline static void adcSetup() {
     ADCSRA = _BV(ADEN) | _BV(ADPS2) | _BV(ADPS1) | _BV(ADPS0);
     ADCSRA |= _BV(ADIE);
     ADMUXB = 0;
 }
 
-void inline sleepWhileADC() {
+inline static void sleepWhileADC() {
     set_sleep_mode(SLEEP_MODE_ADC);
     sleep_mode();
 }
@@ -118,7 +118,7 @@ volatile uint8_t lightCycleOver = 1;
 
 #define PCINT1 1
 
-static inline stopLightMeaseurement() {
+static inline void stopLightMeasurement() {
     GIMSK &= ~_BV(PCIE0);
     TCCR1B = 0;
     PCMSK0 &= ~_BV(PCINT1);
@@ -132,12 +132,12 @@ ISR(PCINT0_vect) {
     TCCR1B = 0;          //stop timer
     lightCounter = TCNT1;
     
-    stopLightMeaseurement();
+    stopLightMeasurement();
 }
 
 ISR(TIMER1_OVF_vect) {
     lightCounter = 65535;
-    stopLightMeaseurement();
+    stopLightMeasurement();
 }
 
 static inline uint16_t getLight() {
@@ -189,7 +189,7 @@ inline static void wdt_enable() {
 uint16_t currCapacitance = 0;
 int temperature = 0;
 
-static inline loopSensorMode() {
+static inline void loopSensorMode() {
     while(1) {
         if(twiDataInReceiveBuffer()) {
             uint8_t usiRx = twiReceiveByte();
