@@ -38,7 +38,7 @@ encoding utf-8
 Sheet 1 1
 Title "Digital soil moisture sensor"
 Date "2015-10-26"
-Rev "2.7.3"
+Rev "2.7.6"
 Comp "Catnip electronics"
 Comment1 "by Albertas Mickėnas mic@wemakethings.net"
 Comment2 ""
