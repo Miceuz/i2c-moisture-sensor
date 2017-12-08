@@ -1,4 +1,4 @@
-update=Sun 25 Oct 2015 06:50:33 PM EET
+update=Tue 28 Nov 2017 10:44:24 AM EET
 version=1
 last_client=kicad
 [pcbnew]
@@ -28,13 +28,13 @@ version=1
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
-PlotDirectoryName=
+PlotDirectoryName=mfgset/
 SubpartIdSeparator=0
 SubpartFirstId=65
 NetFmtName=
-SpiceForceRefPrefix=0
-SpiceUseNetNumbers=0
+SpiceAjustPassiveValues=0
 LabSize=60
+ERC_TestSimilarLabels=1
 [eeschema]
 version=1
 LibDir=
