@@ -248,4 +248,4 @@ void loop()
 ```
 ### Particle Photon
 
-There is a great [tutorial](ParticlePhoton-tutorial.md) by Miriam Cox for Particle Photon boards.
+There is a great [tutorial](ParticlePhoton-tutorial.md) by Miriam Cox for Particle Photon boards. Also there is a [library available](https://github.com/VintageGeek/I2CSoilMoistureSensor) by Mike.
