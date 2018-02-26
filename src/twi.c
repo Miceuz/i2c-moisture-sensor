@@ -20,9 +20,9 @@ static volatile unsigned char txTail = 0;
 void twiSetup(unsigned char address) {
     TWSA = address << 1;
     TWSCRA = (1 << TWEN)   // Two-Wire Interface Enable
-            | (1 << TWSHE)  // TWI SDA Hold Time Enable
+//            | (1 << TWSHE)  // TWI SDA Hold Time Enable
             | (1 << TWASIE) // TWI Address/Stop Interrupt Enable  
-            | (1 << TWSIE)  // TWI Stop Interrupt Enable
+//            | (1 << TWSIE)  // TWI Stop Interrupt Enable
             | (1 << TWDIE); // TWI Data Interrupt Enable  
 }
 
