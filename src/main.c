@@ -8,7 +8,7 @@
 #include "thermistor.h"
 #include "twi.h"
 
-#define FIRMWARE_VERSION 0x24 //2.4
+#define FIRMWARE_VERSION 0x25 //2.5
 
 #define LED_K PA1
 #define LED_A PA0
