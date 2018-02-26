@@ -70,12 +70,18 @@ inline static void adcSetup() {
     ADMUXB = 0;
 }
 
+uint8_t adcInProgress = 0;
+
 inline static void sleepWhileADC() {
-    set_sleep_mode(SLEEP_MODE_ADC);
-    sleep_mode();
+    adcInProgress = 1;
+    while(adcInProgress) {
+	    set_sleep_mode(SLEEP_MODE_ADC);
+	    sleep_mode();
+    }
 }
 
 ISR(ADC_vect) { 
+	adcInProgress = 0;
     //nothing, just wake up
 }
 
@@ -83,7 +89,7 @@ uint16_t adcReadChannel(uint8_t channel) {
     ADMUXA = channel;
     ADCSRA |= _BV(ADSC);
     sleepWhileADC();
-//    loop_until_bit_is_clear(ADCSRA, ADSC);
+   // loop_until_bit_is_clear(ADCSRA, ADSC);
     uint16_t ret = ADC;
     return ret;
 }
