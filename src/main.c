@@ -8,7 +8,7 @@
 #include "thermistor.h"
 #include "twi.h"
 
-#define FIRMWARE_VERSION 0x25 //2.5
+#define FIRMWARE_VERSION 0x26 //2.6
 
 #define LED_K PA1
 #define LED_A PA0
@@ -195,10 +195,18 @@ inline static void wdt_enable() {
 uint16_t currCapacitance = 0;
 int temperature = 0;
 
+uint8_t setAddressActive = 0;
+uint8_t addressCandidate = 0;
+
 static inline void loopSensorMode() {
     while(1) {
         if(twiDataInReceiveBuffer()) {
             uint8_t usiRx = twiReceiveByte();
+
+            if(TWI_SET_ADDRESS != usiRx) {
+                setAddressActive = 0;
+                ledOff();
+            }
 
             if(TWI_GET_CAPACITANCE == usiRx) {
                 twiTransmitByte(currCapacitance >> 8);
@@ -206,8 +214,19 @@ static inline void loopSensorMode() {
                 currCapacitance = getCapacitance();
             } else if(TWI_SET_ADDRESS == usiRx) {
                 uint8_t newAddress = twiReceiveByte();
+
                 if(twiIsValidAddress(newAddress)) {
-                    eeprom_write_byte((uint8_t*)0x01, newAddress);
+                    if(0 == setAddressActive) {
+                        ledOn();
+                        setAddressActive = 1;
+                        addressCandidate = newAddress;
+                    } else {
+                        if(newAddress == addressCandidate) {
+                            eeprom_write_byte((uint8_t*)0x01, newAddress);
+                        }
+                        setAddressActive = 0;
+                        ledOff();
+                    }
                 }
 
             } else if(TWI_GET_ADDRESS == usiRx) {

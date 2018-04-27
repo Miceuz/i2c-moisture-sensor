@@ -1,5 +1,6 @@
 #include <avr/interrupt.h>
 #include <avr/io.h>
+#include <avr/delay.h>
 #include "twi.h"
 
 #define TWI_TX_BUFFER_MASK ( TWI_TX_BUFFER_SIZE - 1 )
@@ -70,8 +71,14 @@ char twiDataInReceiveBuffer(void) {
 }
 
 unsigned char twiReceiveByte(void){
-  while ( rxHead == rxTail );
-  rxTail = ( rxTail + 1 ) & TWI_RX_BUFFER_MASK;
+  uint8_t waittime = 0;
+  while ( rxHead == rxTail && waittime++ < 100){
+    _delay_ms(1);
+  }
+
+  if(waittime < 100) {
+    rxTail = ( rxTail + 1 ) & TWI_RX_BUFFER_MASK;
+  }
   return rxBuf[ rxTail ];
 }
 
