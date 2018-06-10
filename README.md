@@ -249,3 +249,8 @@ void loop()
 ### Particle Photon
 
 There is a great [tutorial](ParticlePhoton-tutorial.md) by Miriam Cox for Particle Photon boards. Also there is a [library available](https://github.com/VintageGeek/I2CSoilMoistureSensor) by Mike.
+
+## Links and mentions
+
+* A [video from Growing Robot](https://www.youtube.com/watch?v=rB4vS7I0euA) about using the sensors with Raspberry Pi
+* A [complete Open Source logging solution](https://github.com/jcw/zelkova) employing a batch of 40 sensors in Crete for tree monitoring
