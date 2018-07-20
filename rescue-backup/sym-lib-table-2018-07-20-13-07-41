@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name i2c-moist-sensor-rescue)(type Legacy)(uri ${KIPRJMOD}/i2c-moist-sensor-rescue.lib)(options "")(descr ""))
+)
