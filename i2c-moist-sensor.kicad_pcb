@@ -1,9 +1,9 @@
-(kicad_pcb (version 20171130) (host pcbnew "(5.0.0-rc2-160-g7b73557)")
+(kicad_pcb (version 20171130) (host pcbnew "(6.0.0-rc1-dev-135-gb4df06c)")
 
   (general
     (thickness 1.6)
     (drawings 14)
-    (tracks 199)
+    (tracks 197)
     (zones 0)
     (modules 25)
     (nets 17)
@@ -45,8 +45,6 @@
     (zone_clearance 0.254)
     (zone_45_only no)
     (trace_min 0.254)
-    (segment_width 0.2)
-    (edge_width 0.1)
     (via_size 0.7)
     (via_drill 0.4)
     (via_min_size 0.7)
@@ -58,6 +56,8 @@
     (uvias_allowed no)
     (uvia_min_size 0.508)
     (uvia_min_drill 0.127)
+    (edge_width 0.1)
+    (segment_width 0.2)
     (pcb_text_width 0.3)
     (pcb_text_size 0.7 0.7)
     (mod_edge_width 0.15)
@@ -95,7 +95,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory gerbers-four-layers/))
+      (outputdirectory "gerbers-four-layers/"))
   )
 
   (net 0 "")
@@ -193,10 +193,10 @@
       (net 3 "Net-(C2-Pad1)"))
     (pad 4 smd rect (at -1.1 -0.85 90) (size 1.4 1.2) (layers F.Cu F.Paste F.Mask)
       (net 2 GND))
-    (model ${KISYS3DMOD}/Crystals.3dshapes/Crystal_SMD_3225-4pin_3.2x2.5mm.wrl
+    (model ${KIPRJMOD}/3d/CRY_SMD3225.STEP
       (at (xyz 0 0 0))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz -90 0 0))
     )
   )
 
@@ -1270,8 +1270,6 @@
   (via (at 96.800004 53.300004) (size 0.7) (drill 0.4) (layers F.Cu B.Cu) (net 2))
   (segment (start 99.25 51.5) (end 99.8 51.5) (width 0.254) (layer F.Cu) (net 2))
   (via (at 99.8 51.5) (size 0.7) (drill 0.4) (layers F.Cu B.Cu) (net 2))
-  (segment (start 99.5 39.2) (end 99.5 34) (width 0.508) (layer In2.Cu) (net 2))
-  (via (at 99.5 34) (size 0.7) (drill 0.4) (layers F.Cu B.Cu) (net 2))
   (segment (start 91.96 55.118) (end 91.96 54.24) (width 0.254) (layer F.Cu) (net 2))
   (segment (start 91.96 54.24) (end 92 54.2) (width 0.254) (layer F.Cu) (net 2))
   (via (at 92 54.2) (size 0.7) (drill 0.4) (layers F.Cu B.Cu) (net 2))
