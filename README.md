@@ -31,7 +31,7 @@ It has a very comprehensive documentation and covers a lot of functionality.
 Some features:
 * Uses a trigger function to trigger all enabled sensors. User selectable.
 * Get soil moisture in percent (requires calibration) or capacitance value.
-* Several temperature scales to choose from. Celcius, Farenheit and Kelvin.
+* Several temperature scales to choose from. Celcius, Fahrenheit and Kelvin.
 * Offset to calibrate the temperature sensor.
 * Measurement timestamps for all on board sensors.
 * Built in support for changing the I2C address of the sensor.
