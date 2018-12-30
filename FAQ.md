@@ -19,24 +19,23 @@ It depends. Note that I2C bus is not ment to run on cables, so it's a hack alrea
 
 Do not solder wires to the 6 pad connector - this is a programming header. Solder to 4 pads marked VCC, SCL, SDA, GND at the edge of the board. I suggest using a shielded 4 wire cable designed for security signalization installations. Do not solder the shield to the sensor, but ground it at the controller board side. Fix cable to the board using zip tie. Cover the wire connection and SMD parts with **glue-lined** heatshrink. Do not use a simple heatshrink as it will eventually let water in and will not allow it to evaporate resulting in short sensor lifetime.
 
-**Do you offer the source code from the i2c chrip project? Can I reflash firmware for the sensor?**
+**Do you offer the source code from the i2c chrip project? Can I reflash firmware of the sensor?**
 
-Yes, sure, the sensor is open source hardware, all the code and hardware files are available on the github page. You can use 6 pad header to program it using any AVR programming hardware like TinyISP, UsbAsp and similar. Also, you can use your [Arduino board as an AVR ISP programmer](https://www.arduino.cc/en/Tutorial/ArduinoISP).
+Yes, sure, the sensor is open source hardware, all the code and hardware files are available on the [github page](https://github.com/Miceuz/i2c-moisture-sensor). You can use 6 pad header to program it using any AVR programming hardware like TinyISP, UsbAsp and similar. Also, you can use your [Arduino board as an AVR ISP programmer](https://www.arduino.cc/en/Tutorial/ArduinoISP).
+![connectors](i2c-moist-sensor-connectors.png)
 
+**Communication with ESP8266-based systems is unreliable, sensor sends data then stops working.**
 
-Communication with ESP8266 is unreliable, sensor sends data then stops working.
+In depth technical analysis is [available here](https://github.com/Apollon77/I2CSoilMoistureSensor/issues/8#issuecomment-295715953).
 
-https://github.com/Apollon77/I2CSoilMoistureSensor/issues/8
+Add this call after you initialize I2C bus:
+```
+  Wire.setClockStretchLimit(4000); 
+```
 
-If this does not help, slow down the bus speed, that will get the communication to work reliably.
+**How durable are non-rugged sensors?**
 
-Let me know how it goes. 
-
-
-
-Durability of non-rugged sensors.
-
-standard solder mask seems to last about 3 months before flaking off (thats without epoxy)
+Standard solder mask seems to last about 3 months before flaking off. It really depends on the type of your soil and how often do you remove and insert the sensor as scratches will damage the surface and shorten the lifespan. I have had sensors working flawlessly for over a year in the flower pot at home when not disturbed. Note that you **must** protect sensor electronics with **glue-lined** heatshrink if you are going to install it outdoors. I use [this heatshrink](https://www.tme.eu/en/details/cb-dwt16-4x_1m-bk/heat-shrink-tubes/cyg/cb-dwt4x-160/) but you can use any similar one.
 
 **Can you set different address for each sensor before shipping?**
 
@@ -58,8 +57,11 @@ Please check if your controller board has onboard pullup resistors for I2C. You 
 
 **What is the expected life of the rugged sensor for continuous use outdoor?**
 
+I still don't have enough data to answer this question. Rugged sensors should be in practice indestructable, but failures sometimes happen. If you are using rugged sensor please let me know about the failures you experience. 
 
 **Light sensor of rugged variant?**
+
+Light sensing does not work for rugged sensors as light sensor is covered by heatshrink.
 
 **I would like to have sensors with a cable up to X meters**
 
@@ -71,7 +73,3 @@ Sometimes I can provide customization for orders over 50 pcs, please drop me an 
 
 Yes, I can, please contact me directly via email - mic at wemakethings net
 
-
- # RS485
-
- If I wanted to use 8 of these sensors for an application I would only need 1 usb dongle ?
