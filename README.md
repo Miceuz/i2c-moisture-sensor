@@ -259,3 +259,4 @@ There is a great [tutorial](ParticlePhoton-tutorial.md) by Miriam Cox for Partic
 
 * A [video from Growing Robot](https://www.youtube.com/watch?v=rB4vS7I0euA) about using the sensors with Raspberry Pi
 * A [complete Open Source logging solution](https://github.com/jcw/zelkova) employing a batch of 40 sensors in Crete for tree monitoring
+* [Chirp - Wemos - Azure bridge](https://github.com/korpiq/chirp-wemos-meter) ESP8266 based system that pushes sensor data to Azure cloud serivices. 
