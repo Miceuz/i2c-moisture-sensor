@@ -175,6 +175,11 @@ void loop() {
   Serial.println(readI2CRegister16bit(0x20, 4)); //read light register
 }
 ```
+### Note for ESP8266 based systems
+In some cases the default ESP8266 Arduino I2C library has the clock stretching timeout set too low. If you experience intermittent communication, add this to your code:
+```
+Wire.setClockStretchLimit(2500)
+```
 
 ## Address change example
 By default the sensor comes with 0x20 set as an address, this is an example on how to change address for indivitual sensor:
@@ -253,4 +258,5 @@ There is a great [tutorial](ParticlePhoton-tutorial.md) by Miriam Cox for Partic
 ## Links and mentions
 
 * A [video from Growing Robot](https://www.youtube.com/watch?v=rB4vS7I0euA) about using the sensors with Raspberry Pi
-* A [complete Open Source logging solution](https://github.com/jcw/zelkova) employing a batch of 40 sensors in Crete for tree monitoring
+* A [complete Open Source logging solution](https://git.jeelabs.org/jcw/zelkova) employing a batch of 40 sensors in Crete for tree monitoring
+* [Chirp - Wemos - Azure bridge](https://github.com/korpiq/chirp-wemos-meter) ESP8266 based system that pushes sensor data to Azure cloud serivices. 
