@@ -1,6 +1,5 @@
-EESchema Schematic File Version 4
-LIBS:i2c-moist-sensor-cache
-EELAYER 29 0
+EESchema Schematic File Version 5
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -13,6 +12,11 @@ Comment1 "by Albertas Mickėnas mic@wemakethings.net"
 Comment2 ""
 Comment3 ""
 Comment4 ""
+Comment5 ""
+Comment6 ""
+Comment7 ""
+Comment8 ""
+Comment9 ""
 $EndDescr
 $Comp
 L Device:Crystal X1
@@ -571,4 +575,7 @@ Connection ~ 9600 3800
 Wire Wire Line
 	9600 3800 10500 3800
 Connection ~ 7250 4300
+Connection ~ 8500 3050
+Connection ~ 9300 2650
+Connection ~ 4500 2900
 $EndSCHEMATC
