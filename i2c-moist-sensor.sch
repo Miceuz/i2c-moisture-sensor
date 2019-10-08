@@ -1,37 +1,5 @@
-EESchema Schematic File Version 2
-LIBS:i2c-moist-sensor-rescue
-LIBS:power
-LIBS:device
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:special
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
-LIBS:i2c-moist-sensor-cache
-EELAYER 26 0
+EESchema Schematic File Version 5
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -44,9 +12,14 @@ Comment1 "by Albertas Mickėnas mic@wemakethings.net"
 Comment2 ""
 Comment3 ""
 Comment4 ""
+Comment5 ""
+Comment6 ""
+Comment7 ""
+Comment8 ""
+Comment9 ""
 $EndDescr
 $Comp
-L CRYSTAL X1
+L i2c-moist-sensor-rescue:CRYSTAL X1
 U 1 1 54D213EA
 P 5700 2800
 F 0 "X1" H 5700 2950 50  0000 C CNN
@@ -60,7 +33,7 @@ F 6 "Farnell/2395958" H 5700 2800 60  0001 C CNN "Distributor"
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C1
+L i2c-moist-sensor-rescue:C C1
 U 1 1 54D21881
 P 5400 2950
 F 0 "C1" H 5450 3050 50  0000 L CNN
@@ -74,7 +47,7 @@ F 6 "Farnell/2310585" H 5400 2950 60  0001 C CNN "Distributor"
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C2
+L i2c-moist-sensor-rescue:C C2
 U 1 1 54D218DE
 P 6000 2950
 F 0 "C2" H 6050 3050 50  0000 L CNN
@@ -88,7 +61,7 @@ F 6 "Farnell/2310585" H 5400 2950 60  0001 C CNN "Distributor"
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR01
+L i2c-moist-sensor-rescue:GND #PWR01
 U 1 1 54D21A04
 P 5700 3100
 F 0 "#PWR01" H 5700 2850 60  0001 C CNN
@@ -99,7 +72,7 @@ F 3 "" H 5700 3100 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VCC #PWR02
+L i2c-moist-sensor-rescue:VCC #PWR02
 U 1 1 54D21DD5
 P 1550 1700
 F 0 "#PWR02" H 1550 1550 60  0001 C CNN
@@ -110,7 +83,7 @@ F 3 "" H 1550 1700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR03
+L i2c-moist-sensor-rescue:GND #PWR03
 U 1 1 54D21DE7
 P 1550 2900
 F 0 "#PWR03" H 1550 2650 60  0001 C CNN
@@ -121,7 +94,7 @@ F 3 "" H 1550 2900 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C3
+L i2c-moist-sensor-rescue:C C3
 U 1 1 54D21E5C
 P 1550 1850
 F 0 "C3" H 1600 1950 50  0000 L CNN
@@ -135,7 +108,7 @@ F 6 "Farnell/2310637" H 1550 1850 60  0001 C CNN "Distributor"
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR04
+L i2c-moist-sensor-rescue:GND #PWR04
 U 1 1 54D21F25
 P 1550 2000
 F 0 "#PWR04" H 1550 1750 60  0001 C CNN
@@ -146,7 +119,7 @@ F 3 "" H 1550 2000 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L DIODESCH D1
+L i2c-moist-sensor-rescue:DIODESCH D1
 U 1 1 54D21FCD
 P 9100 2350
 F 0 "D1" H 9100 2450 50  0000 C CNN
@@ -160,7 +133,7 @@ F 6 "Farnell/2322476" H 9100 2350 60  0001 C CNN "Distributor"
 	-1   0    0    1   
 $EndComp
 $Comp
-L DIODESCH D2
+L i2c-moist-sensor-rescue:DIODESCH D2
 U 1 1 54D22068
 P 9100 3800
 F 0 "D2" H 9100 3900 50  0000 C CNN
@@ -174,7 +147,7 @@ F 6 "Farnell/2322476" H 9100 3800 60  0001 C CNN "Distributor"
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R4
+L i2c-moist-sensor-rescue:R R4
 U 1 1 54D2209D
 P 8350 3050
 F 0 "R4" V 8430 3050 50  0000 C CNN
@@ -188,7 +161,7 @@ F 6 "Farnell/2446656" V 8350 3050 60  0001 C CNN "Distributor"
 	0    1    1    0   
 $EndComp
 $Comp
-L R R5
+L i2c-moist-sensor-rescue:R R5
 U 1 1 54D22174
 P 9300 2200
 F 0 "R5" V 9380 2200 50  0000 C CNN
@@ -202,7 +175,7 @@ F 6 "Farnell/2446602" H 9300 2200 60  0001 C CNN "Distributor"
 	-1   0    0    1   
 $EndComp
 $Comp
-L R R8
+L i2c-moist-sensor-rescue:R R8
 U 1 1 54D221C8
 P 9600 3950
 F 0 "R8" V 9680 3950 50  0000 C CNN
@@ -216,7 +189,7 @@ F 6 "Farnell/2446602" H 9600 3950 60  0001 C CNN "Distributor"
 	-1   0    0    1   
 $EndComp
 $Comp
-L GND #PWR06
+L i2c-moist-sensor-rescue:GND #PWR06
 U 1 1 54D2221D
 P 9300 4100
 F 0 "#PWR06" H 9300 3850 60  0001 C CNN
@@ -227,7 +200,7 @@ F 3 "" H 9300 4100 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C4
+L i2c-moist-sensor-rescue:C C4
 U 1 1 54D2222A
 P 9300 2500
 F 0 "C4" H 9350 2600 50  0000 L CNN
@@ -241,7 +214,7 @@ F 6 "Farnell/2310598" H 9300 2500 60  0001 C CNN "Distributor"
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR07
+L i2c-moist-sensor-rescue:GND #PWR07
 U 1 1 54D222DF
 P 9300 2650
 F 0 "#PWR07" H 9300 2400 60  0001 C CNN
@@ -252,7 +225,7 @@ F 3 "" H 9300 2650 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R7
+L i2c-moist-sensor-rescue:R R7
 U 1 1 54D222F8
 P 9600 2500
 F 0 "R7" V 9680 2500 50  0000 C CNN
@@ -268,7 +241,7 @@ $EndComp
 Text Label 9900 2350 0    60   ~ 0
 SENSE_LOW
 $Comp
-L C C5
+L i2c-moist-sensor-rescue:C C5
 U 1 1 54D22484
 P 9300 3950
 F 0 "C5" H 9350 4050 50  0000 L CNN
@@ -282,7 +255,7 @@ F 6 "Farnell/2310598" H 9300 3950 60  0001 C CNN "Distributor"
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R6
+L i2c-moist-sensor-rescue:R R6
 U 1 1 54D2252C
 P 9300 3650
 F 0 "R6" V 9380 3650 50  0000 C CNN
@@ -300,7 +273,7 @@ MISO/SENSE_HIGH
 Text Label 8500 3450 2    60   ~ 0
 SENSOR_TRACK
 $Comp
-L GND #PWR09
+L i2c-moist-sensor-rescue:GND #PWR09
 U 1 1 54D22F14
 P 4750 5750
 F 0 "#PWR09" H 4750 5500 60  0001 C CNN
@@ -311,7 +284,7 @@ F 3 "" H 4750 5750 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R1
+L i2c-moist-sensor-rescue:R R1
 U 1 1 54DF19BF
 P 4650 2900
 F 0 "R1" V 4730 2900 50  0000 C CNN
@@ -325,7 +298,7 @@ F 6 "Farnell/2379939" H 4650 2900 60  0001 C CNN "Distributor"
 	0    -1   -1   0   
 $EndComp
 $Comp
-L VCC #PWR010
+L i2c-moist-sensor-rescue:VCC #PWR010
 U 1 1 54DF1CF6
 P 4800 2900
 F 0 "#PWR010" H 4800 2750 60  0001 C CNN
@@ -336,7 +309,7 @@ F 3 "" H 4800 2900 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C6
+L i2c-moist-sensor-rescue:C C6
 U 1 1 54DF1D15
 P 4500 3050
 F 0 "C6" H 4550 3150 50  0000 L CNN
@@ -350,7 +323,7 @@ F 6 "Farnell/2310637" H 4500 3050 60  0001 C CNN "Distributor"
 	-1   0    0    -1  
 $EndComp
 $Comp
-L GND #PWR011
+L i2c-moist-sensor-rescue:GND #PWR011
 U 1 1 54DF1D84
 P 4500 3200
 F 0 "#PWR011" H 4500 2950 60  0001 C CNN
@@ -375,7 +348,7 @@ MOSI/SDA
 Text Label 4550 2400 2    60   ~ 0
 SENSE_LOW
 $Comp
-L THERMISTOR TH1
+L i2c-moist-sensor-rescue:THERMISTOR TH1
 U 1 1 54E05F89
 P 7250 4550
 F 0 "TH1" V 7350 4600 50  0000 C CNN
@@ -389,7 +362,7 @@ F 6 "Farnell/2456122" V 7250 4550 60  0001 C CNN "Distributor"
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R2
+L i2c-moist-sensor-rescue:R R2
 U 1 1 54E06028
 P 7250 4150
 F 0 "R2" V 7330 4150 50  0000 C CNN
@@ -403,7 +376,7 @@ F 6 "Farnell/2379939" V 7250 4150 60  0001 C CNN "Distributor"
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR012
+L i2c-moist-sensor-rescue:GND #PWR012
 U 1 1 54E0608E
 P 7250 4800
 F 0 "#PWR012" H 7250 4550 60  0001 C CNN
@@ -418,7 +391,7 @@ THERMISTOR
 Text Label 4550 2000 2    60   ~ 0
 THERMISTOR
 $Comp
-L LED-RESCUE-i2c-moist-sensor D3
+L i2c-moist-sensor-rescue:LED-RESCUE-i2c-moist-sensor D3
 U 1 1 54E06E01
 P 5100 1550
 F 0 "D3" H 5100 1650 50  0000 C CNN
@@ -432,7 +405,7 @@ F 6 "Farnell/2449786" H 5100 1550 60  0001 C CNN "Distributor"
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R9
+L i2c-moist-sensor-rescue:R R9
 U 1 1 54E06FCA
 P 5450 1550
 F 0 "R9" V 5530 1550 50  0000 C CNN
@@ -448,20 +421,20 @@ $EndComp
 Wire Wire Line
 	3650 2700 5400 2700
 Wire Wire Line
-	5400 3100 6000 3100
+	5400 3100 5700 3100
 Connection ~ 5700 3100
 Wire Wire Line
-	9300 2350 10500 2350
+	9300 2350 9600 2350
 Wire Wire Line
 	9600 2650 9300 2650
 Connection ~ 9600 2350
 Wire Wire Line
 	9300 4100 9600 4100
 Wire Wire Line
-	9300 3800 10500 3800
+	9300 3800 9600 3800
 Connection ~ 9600 3800
 Wire Wire Line
-	8900 2350 8900 3800
+	8900 2350 8900 3050
 Wire Wire Line
 	8500 3050 8900 3050
 Connection ~ 8900 3050
@@ -492,7 +465,7 @@ Wire Wire Line
 Wire Wire Line
 	3650 2000 4550 2000
 $Comp
-L CONN_02X03 P1
+L i2c-moist-sensor-rescue:CONN_02X03 P1
 U 1 1 54E0D5F3
 P 4500 5650
 F 0 "P1" H 4500 5850 50  0000 C CNN
@@ -503,7 +476,7 @@ F 3 "" H 4500 4450 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VCC #PWR014
+L i2c-moist-sensor-rescue:VCC #PWR014
 U 1 1 54E0D755
 P 4750 5550
 F 0 "#PWR014" H 4750 5400 60  0001 C CNN
@@ -531,7 +504,7 @@ Text Label 3850 5750 0    60   ~ 0
 RESET
 Connection ~ 9300 2350
 Wire Wire Line
-	3650 1900 9750 1900
+	3650 1900 7250 1900
 Wire Wire Line
 	5600 1800 3650 1800
 Wire Wire Line
@@ -541,7 +514,7 @@ Wire Wire Line
 Wire Wire Line
 	3650 2200 4550 2200
 $Comp
-L ATTINY441-SSU IC1
+L i2c-moist-sensor-rescue:ATTINY441-SSU IC1
 U 1 1 556E13D2
 P 2600 2300
 F 0 "IC1" H 1750 3050 40  0000 C CNN
@@ -566,4 +539,25 @@ Wire Wire Line
 Connection ~ 7250 1900
 Text Label 7250 1900 0    60   ~ 0
 POWER
+Wire Wire Line
+	5700 3100 6000 3100
+Wire Wire Line
+	9600 2350 10500 2350
+Wire Wire Line
+	9600 3800 10500 3800
+Wire Wire Line
+	8900 3050 8900 3800
+Wire Wire Line
+	9300 1900 9750 1900
+Wire Wire Line
+	7250 1900 9300 1900
+Connection ~ 5400 2800
+Connection ~ 6000 2800
+Connection ~ 1550 1700
+Connection ~ 9300 3800
+Connection ~ 8500 3050
+Connection ~ 9300 4100
+Connection ~ 9300 2650
+Connection ~ 4500 2900
+Connection ~ 7250 4300
 $EndSCHEMATC
