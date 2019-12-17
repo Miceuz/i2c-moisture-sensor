@@ -180,6 +180,9 @@ In some cases the default ESP8266 Arduino I2C library has the clock stretching t
 ```
 Wire.setClockStretchLimit(2500)
 ```
+### Micropython
+Micropython library is available here: [https://github.com/scopelemanuele/pyChirpLib](https://github.com/scopelemanuele/pyChirpLib)
+
 
 ## Address change example
 By default the sensor comes with 0x20 set as an address, this is an example on how to change address for indivitual sensor:
