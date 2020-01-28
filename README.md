@@ -31,7 +31,7 @@ It has a very comprehensive documentation and covers a lot of functionality.
 Some features:
 * Uses a trigger function to trigger all enabled sensors. User selectable.
 * Get soil moisture in percent (requires calibration) or capacitance value.
-* Several temperature scales to choose from. Celcius, Farenheit and Kelvin.
+* Several temperature scales to choose from. Celcius, Fahrenheit and Kelvin.
 * Offset to calibrate the temperature sensor.
 * Measurement timestamps for all on board sensors.
 * Built in support for changing the I2C address of the sensor.
@@ -180,6 +180,9 @@ In some cases the default ESP8266 Arduino I2C library has the clock stretching t
 ```
 Wire.setClockStretchLimit(2500)
 ```
+### Micropython
+Micropython library is available here: [https://github.com/scopelemanuele/pyChirpLib](https://github.com/scopelemanuele/pyChirpLib)
+
 
 ## Address change example
 By default the sensor comes with 0x20 set as an address, this is an example on how to change address for indivitual sensor:
