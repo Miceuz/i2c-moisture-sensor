@@ -2,6 +2,8 @@
 
 I2C based soil moisture sensor. A continuation of the [Chirp - plant watering alarm](https://github.com/Miceuz/PlantWateringAlarm) project. There is also an [RS485](https://github.com/Miceuz/rs485-moist-sensor) and an [analog](https://github.com/Miceuz/soil-moisture-sensor-analog) version available.
 
+[![](https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-smalls.png)](https://www.tindie.com/products/2330/)
+
 ## I2C protocol
 Available registers for reading and writing.
 
