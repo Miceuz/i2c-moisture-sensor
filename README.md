@@ -71,6 +71,8 @@ class Chirp:
 		# To change the I2C address of the sensor, write a new address
 		# (one byte [1..127]) to register 1; the new address will take effect after reset
 		self.bus.write_byte_data(self.address, 1, new_addr)
+		# second request is required since FW 0x26 to protect agains spurious address changes
+		self.bus.write_byte_data(self.address, 1, new_addr)
 		self.reset()
 		self.address = new_addr
 
