@@ -211,6 +211,7 @@ void setup() {
   Serial.begin(9600);
                                        //talking to the default address 0x20
   writeI2CRegister8bit(0x20, 1, 0x21); //change address to 0x21
+  writeI2CRegister8bit(0x20, 1, 0x21); //address change command has to be repeated two times, this is a safety measure
   writeI2CRegister8bit(0x20, 6);       //reset
   delay(1000);                         //give it some time to boot
 }
@@ -261,6 +262,10 @@ void loop()
 ### Particle Photon
 
 There is a great [tutorial](ParticlePhoton-tutorial.md) by Miriam Cox for Particle Photon boards. Also there is a [library available](https://github.com/VintageGeek/I2CSoilMoistureSensor) by Mike.
+
+## Calibration
+
+To get the most accurate readings calibration has to be performed for the particular type of soil as sensor is quite sensitive to saline content of the soil. Here is a great example of calibration technique: [Link](https://github.com/Miceuz/i2c-moisture-sensor/raw/master/Soil%20Moisture%20Sensor%20Calibration.pdf)
 
 ## Links and mentions
 
