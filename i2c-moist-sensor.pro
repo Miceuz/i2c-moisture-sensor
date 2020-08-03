@@ -1,4 +1,4 @@
-update=Wed 05 Dec 2018 03:56:00 PM EET
+update=Tue 28 Jan 2020 05:45:35 PM EET
 version=1
 last_client=kicad
 [pcbnew]
@@ -25,16 +25,22 @@ version=1
 NetIExt=net
 [general]
 version=1
+[eeschema]
+version=1
+LibDir=
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
-PlotDirectoryName=mfgset/
+PlotDirectoryName=
 SubpartIdSeparator=0
 SubpartFirstId=65
 NetFmtName=
 SpiceAjustPassiveValues=0
 LabSize=60
+ERC_WriteFile=0
 ERC_TestSimilarLabels=1
-[eeschema]
-version=1
-LibDir=
+ERC_CheckUniqueGlobalLabels=1
+ERC_CheckBusDriverConflicts=1
+ERC_CheckBusEntryConflicts=1
+ERC_CheckBusToBusConflicts=1
+ERC_CheckBusToNetConflicts=1
