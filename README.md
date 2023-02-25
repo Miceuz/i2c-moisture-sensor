@@ -22,6 +22,22 @@ GET_BUSY          | 0x09 | (r) | 1
 
 GET_BUSY returns 1 if any measurement is in progress, 0 otherwise.
 
+## How to interpret the readings
+
+16bit values are returned most significant byte first.
+
+Both light and moisture sensors give relative values. Meaning, more moisture will give you higher reading, more light, lower reading. They are not calibrated to any particular si units - this is up to you.
+
+Moisture is somewhat linear. I test all sensors before shipping and they give about 290 - 310 in free air at 5V supply.
+
+Temperature is in Celsius, value is in tenths of degrees Celsius. I.e. value 252 would mean 25.2°C.
+
+I didn't measure linearity of the light sensor, it gives 65535 in a dark room away form desk lamp. When it's dark, it takes longer to measure light, reading the light register while measurement is in progress will return the previous reading. Be aware, light sensor is pretty noisy.
+
+Temperature is measured by the thermistor on the body of the sensor. Calculated absolute measurement accuracy is better than 2%. 
+
+Note Upon reading the moisture or temperature value, a value form the previous read command is returned and the new measurement is started. If you do rare measurements and want to act instantly, do two consecutive readings to get the most up to date data. Also you can read GET_BUSY register via i2c - it will indicate when the measurement is done. Basically the process goes like this: read from GET_CAPACITANCE, discard results, then read from GET_BUSY until you get '0' as an answer, then read form GET_CAPACITANCE again - the returned value is the soil moisture NOW.
+
 ### Python library for Raspberry Pi
 
 *NOTE: if you experience problems on Raspberry Pi 3, slow down I2C bus speed by adding this line to /boot/config.txt:*
